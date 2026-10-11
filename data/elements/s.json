@@ -1,0 +1,1 @@
+{ "symbol": "S", "name": "Sulfur", "role": "impurity", "notes": "Ore impurity. Raises gas content and brittleness.", "oxidationLossPerMinute": 0, "gasPickupPerWt": 20 }

@@ -1,0 +1,15 @@
+{
+  "id": "chisel_bronze",
+  "name": "Bronze chisel",
+  "typicalPath": "Cast bar → cold work edge → anneal cycles → final cold work edge → grind",
+  "zones": [
+    { "id": "edge",  "startThicknessMm": 6.0,  "targetThicknessMm": 3.0 },
+    { "id": "shank", "startThicknessMm": 12.0, "targetThicknessMm": 11.0 },
+    { "id": "head",  "startThicknessMm": 14.0, "targetThicknessMm": 14.0 }
+  ],
+  "requirements": [
+    { "zone": "edge",  "property": "HV",         "min": 180,  "weight": 0.5 },
+    { "zone": "shank", "property": "Toughness",  "min": 55,   "weight": 0.3 },
+    { "zone": "edge",  "property": "ShapeError", "max": 0.15, "weight": 0.2 }
+  ]
+}

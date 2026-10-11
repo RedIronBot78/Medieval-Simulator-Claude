@@ -1,0 +1,15 @@
+{
+  "id": "chisel_22sn_cast",
+  "description": "Bell metal cast as a chisel. Too brittle to cold-work (ε_max ≈ 0), so it is cast and ground only. Used by behavioral test 10.",
+  "template": "chisel_bronze",
+  "seed": 1234,
+  "steps": [
+    { "type": "Melt", "charge": [
+        { "composition": { "Cu": 100 }, "massKg": 0.78 },
+        { "composition": { "Sn": 100 }, "massKg": 0.22 } ],
+      "peakTempC": 1000, "minutesAtTemp": 15, "minutesAboveLiquidus": 12,
+      "cover": "charcoal", "stirred": true },
+    { "type": "Cast", "pourTempC": 990, "moldType": "stone", "moldPreheatC": 150, "pourQuality": 0.9 },
+    { "type": "Grind", "zone": "edge", "edgeAngleDeg": 30, "finish": 0.8 }
+  ]
+}

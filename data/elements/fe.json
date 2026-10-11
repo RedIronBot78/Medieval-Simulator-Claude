@@ -1,0 +1,1 @@
+{ "symbol": "Fe", "name": "Iron", "role": "impurity", "notes": "Ore impurity. Small hardening, raises inclusion count.", "oxidationLossPerMinute": 0, "gasPickupPerWt": 0 }

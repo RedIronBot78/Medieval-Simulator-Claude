@@ -1,0 +1,15 @@
+{
+  "id": "cauldron_leaded",
+  "description": "Leaded bronze (8% Sn, 8% Pb) cauldron cast thin in a sand mold. Lead makes it pour well; it is never worked.",
+  "template": "cauldron_bronze",
+  "seed": 1234,
+  "steps": [
+    { "type": "Melt", "charge": [
+        { "composition": { "Cu": 100 }, "massKg": 4.20 },
+        { "composition": { "Sn": 100 }, "massKg": 0.40 },
+        { "composition": { "Pb": 100 }, "massKg": 0.40 } ],
+      "peakTempC": 1100, "minutesAtTemp": 15, "minutesAboveLiquidus": 10,
+      "cover": "charcoal", "stirred": true },
+    { "type": "Cast", "pourTempC": 1080, "moldType": "sand", "moldPreheatC": 200, "pourQuality": 0.85 }
+  ]
+}

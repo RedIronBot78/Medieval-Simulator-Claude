@@ -1,0 +1,8 @@
+{
+  "id": "carving_hardwood",
+  "name": "Carving hardwood (mallet and chisel)",
+  "impactLoad": 0.4,
+  "abrasion": 0.5,
+  "targetHardness": 0.5,
+  "primaryZone": "edge"
+}

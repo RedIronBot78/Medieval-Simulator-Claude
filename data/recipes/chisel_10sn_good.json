@@ -1,0 +1,19 @@
+{
+  "id": "chisel_10sn_good",
+  "description": "Spec §8 example: 10% Sn chisel, annealed, edge cold-worked in two rounds with an anneal between, ground.",
+  "template": "chisel_bronze",
+  "seed": 1234,
+  "steps": [
+    { "type": "Melt", "charge": [
+        { "composition": { "Cu": 100 }, "massKg": 0.90 },
+        { "composition": { "Sn": 100 }, "massKg": 0.105 } ],
+      "peakTempC": 1120, "minutesAtTemp": 15, "minutesAboveLiquidus": 12,
+      "cover": "charcoal", "stirred": true },
+    { "type": "Cast", "pourTempC": 1100, "moldType": "stone", "moldPreheatC": 150, "pourQuality": 0.9 },
+    { "type": "Anneal", "tempC": 650, "minutes": 30, "atmosphere": "charcoal" },
+    { "type": "Strike", "repeat": 25, "zone": "edge", "force": 0.7, "accuracy": 0.9, "angleOffDeg": 5, "metalTempC": 20 },
+    { "type": "Anneal", "tempC": 600, "minutes": 10, "atmosphere": "charcoal" },
+    { "type": "Strike", "repeat": 25, "zone": "edge", "force": 0.6, "accuracy": 0.9, "angleOffDeg": 5, "metalTempC": 20 },
+    { "type": "Grind", "zone": "edge", "edgeAngleDeg": 30, "finish": 0.8 }
+  ]
+}
