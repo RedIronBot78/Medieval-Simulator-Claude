@@ -15,7 +15,7 @@ public static class AnnealProcess
         var comp = mat.Composition;
         double trx = MeltingRanges.Recrystallization(m, comp);
         double ts = MeltingRanges.Solidus(m, comp);
-        log.Add($"Anneal {step.TempC:0} °C × {step.Minutes:0} min in {step.Atmosphere} (T_rx {trx:0}, TS {ts:0})");
+        log.Add($"Anneal {step.TempC:0} °C × {step.Minutes:0} min in {step.Atmosphere.ToString().ToLowerInvariant()} (T_rx {trx:0}, TS {ts:0})");
 
         if (step.TempC >= trx)
         {
@@ -42,8 +42,8 @@ public static class AnnealProcess
             mat.Phase.BetaQuenched = false;
             mat.Phase.SolutionQuenched = false;
 
-            log.Add($"  Recrystallized {x:P0}; grain {grainBefore:0} → {mat.GrainSizeUm:0} µm; " +
-                    $"homogenized {h:P0}, δ {deltaBefore:0.000} → {mat.Phase.Delta:0.000}{(mat.Phase.Cored ? ", still cored" : ", coring removed")}");
+            log.Add($"  Recrystallized {x * 100:0}%; grain {grainBefore:0} → {mat.GrainSizeUm:0} µm; " +
+                    $"homogenized {h * 100:0}%, δ {deltaBefore:0.000} → {mat.Phase.Delta:0.000}{(mat.Phase.Cored ? ", still cored" : ", coring removed")}");
         }
         else
         {

@@ -13,7 +13,7 @@ public static class MeltProcess
 
         var charged = MixCharge(forge, step.Charge);
         double tl = MeltingRanges.Liquidus(m, charged);
-        log.Add($"Charge {step.Charge.Sum(ci => ci.MassKg):0.000} kg → {charged} (TL {tl:0} °C)");
+        log.Add($"Melt charge {step.Charge.Sum(ci => ci.MassKg):0.000} kg → {charged} (TL {tl:0} °C)");
 
         if (step.PeakTempC < tl)
         {
@@ -32,7 +32,7 @@ public static class MeltProcess
             if (rate <= 0) continue;
             double lossFraction = Math.Clamp(rate * step.MinutesAtTemp * fT * cover, 0, 1);
             comp = comp.With(symbol, wt * (1 - lossFraction));
-            log.Add($"  {symbol} oxidation loss {lossFraction:P1} of charge: {wt:0.00}% → {wt * (1 - lossFraction):0.00}%");
+            log.Add($"  {symbol} oxidation loss {lossFraction * 100:0.0}% of charge: {wt:0.00}% → {wt * (1 - lossFraction):0.00}%");
         }
 
         // Gas pickup

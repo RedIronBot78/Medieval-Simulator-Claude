@@ -16,7 +16,7 @@ public static class CastProcess
 
         double tl = MeltingRanges.Liquidus(m, mat.Composition);
         double sh = step.PourTempC - tl;
-        log.Add($"Pour {step.PourTempC:0} °C into {step.MoldType} mold (preheat {step.MoldPreheatC:0} °C), superheat {sh:0} °C, pour quality {step.PourQuality:0.00}");
+        log.Add($"Pour {step.PourTempC:0} °C into {step.MoldType.ToString().ToLowerInvariant()} mold (preheat {step.MoldPreheatC:0} °C), superheat {sh:0} °C, pour quality {step.PourQuality:0.00}");
 
         // Misrun / cold shut
         if (sh < c.MisrunSuperheatC)
