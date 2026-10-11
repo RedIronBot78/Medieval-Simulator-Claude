@@ -31,7 +31,8 @@ public sealed class Forge
             case AnnealStep s: AnnealProcess.Apply(this, item, s, log); break;
             case StrikeStep s: StrikeProcess.Apply(this, item, s, rng, log); break;
             case QuenchStep s: QuenchProcess.Apply(this, item, s, rng, log); break;
-            default: throw new NotSupportedException($"Step type {step.Type} is not implemented yet.");
+            case GrindStep s: GrindProcess.Apply(this, item, s, log); break;
+            default: throw new NotSupportedException($"Unknown step type {step.Type}.");
         }
         return log;
     }
