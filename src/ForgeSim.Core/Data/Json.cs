@@ -18,6 +18,7 @@ public static class Json
             WriteIndented = true,
         };
         o.Converters.Add(new JsonStringEnumConverter(JsonNamingPolicy.CamelCase));
+        o.Converters.Add(new Process.ProcessStepConverter());
         return o;
     }
 
