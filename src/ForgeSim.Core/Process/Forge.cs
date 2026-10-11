@@ -30,6 +30,7 @@ public sealed class Forge
             case CastStep s: CastProcess.Apply(this, item, s, log); break;
             case AnnealStep s: AnnealProcess.Apply(this, item, s, log); break;
             case StrikeStep s: StrikeProcess.Apply(this, item, s, rng, log); break;
+            case QuenchStep s: QuenchProcess.Apply(this, item, s, rng, log); break;
             default: throw new NotSupportedException($"Step type {step.Type} is not implemented yet.");
         }
         return log;

@@ -22,4 +22,7 @@ knob lives, so it can be overruled. Nothing here changes a spec number.
 | 15 | 3.3 | Order of checks within one blow | Thin first, then add strain, then the crack check against the new ε. Each blow always consumes four RNG draws (crack, fold, hot-tin, hot-lead), so retuning one constant doesn't reshuffle later rolls | `StrikeProcess` |
 | 16 | 3.3, 5 | Crack severity added by a hot-short crack | The same as a cold crack: 0.05 + 0.1·Force | `StrikeProcess` |
 | 17 | 3.3 | Fold severity | Each fold is its own hidden defect, severity 1; toughness counts them (−10 each) | `StrikeProcess` |
+| 18 | 3.5 | Size of the "small toughness gain" from quenching above T_rx | +3 toughness, water or oil only (air cooling is the baseline), and no hardness change (within the ≤ 5% allowed) | `quench.solutionQuenchToughnessBonus` |
+| 19 | 3.5 | Thermal-shock crack: which zone, how severe? | One roll per zone; a crack adds 0.15 severity (hidden below 0.3) | `quench.thermalShockCrackSeverity` |
+| 20 | 3.5 | β-quench vs thermal shock order | β-quench first (sets δ = 0.05), then the shock check, so a correct β-quench can't shock-crack on δ that isn't present at 586–790 °C | `QuenchProcess` |
 | 14 | 3.4 | Is homogenization cumulative? | No, per spec: each anneal's H is computed alone, and coring is removed only if a single anneal reaches H > 0.9. So 650 °C × 30 min (H = 0.81) leaves 10% Sn cored, while 700 °C × 30 min (H = 0.94) clears it. Tracking a remaining-coring fraction would be a structural change; not done | `AnnealProcess` |
