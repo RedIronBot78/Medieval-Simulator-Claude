@@ -27,6 +27,7 @@ public sealed class Forge
         switch (step)
         {
             case MeltStep s: MeltProcess.Apply(this, item, s, log); break;
+            case CastStep s: CastProcess.Apply(this, item, s, log); break;
             default: throw new NotSupportedException($"Step type {step.Type} is not implemented yet.");
         }
         return log;

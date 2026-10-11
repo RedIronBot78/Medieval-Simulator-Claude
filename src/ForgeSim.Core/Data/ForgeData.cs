@@ -1,3 +1,5 @@
+using ForgeSim.Core.Items;
+
 namespace ForgeSim.Core.Data;
 
 /// <summary>Everything loaded from the data/ folder. Load once and share; it is read-only after loading.</summary>
@@ -6,14 +8,17 @@ public sealed class ForgeData
     public required string Root { get; init; }
     public required IReadOnlyDictionary<string, ElementDef> Elements { get; init; }
     public required MaterialModel Model { get; init; }
+    public required IReadOnlyDictionary<string, ItemTemplate> Templates { get; init; }
 
     public static ForgeData Load(string dataRoot, string modelId = "bronze")
     {
         var elements = LoadAll<ElementDef>(Path.Combine(dataRoot, "elements"))
             .ToDictionary(e => e.Symbol, StringComparer.Ordinal);
         var model = Json.Load<MaterialModel>(Path.Combine(dataRoot, "model", modelId + ".json"));
+        var templates = LoadAll<ItemTemplate>(Path.Combine(dataRoot, "items"))
+            .ToDictionary(t => t.Id, StringComparer.Ordinal);
 
-        var data = new ForgeData { Root = dataRoot, Elements = elements, Model = model };
+        var data = new ForgeData { Root = dataRoot, Elements = elements, Model = model, Templates = templates };
         data.Validate();
         return data;
     }
@@ -33,6 +38,9 @@ public sealed class ForgeData
     }
 
     public static ForgeData LoadDefault() => Load(FindRoot());
+
+    public ItemTemplate Template(string id) =>
+        Templates.TryGetValue(id, out var t) ? t : throw new KeyNotFoundException($"No item template '{id}' in data/items.");
 
     private static IEnumerable<T> LoadAll<T>(string dir) =>
         Directory.Exists(dir)
