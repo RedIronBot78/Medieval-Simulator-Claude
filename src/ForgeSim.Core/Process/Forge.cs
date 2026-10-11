@@ -28,6 +28,7 @@ public sealed class Forge
         {
             case MeltStep s: MeltProcess.Apply(this, item, s, log); break;
             case CastStep s: CastProcess.Apply(this, item, s, log); break;
+            case AnnealStep s: AnnealProcess.Apply(this, item, s, log); break;
             default: throw new NotSupportedException($"Step type {step.Type} is not implemented yet.");
         }
         return log;
