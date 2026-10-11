@@ -9,6 +9,10 @@ knob lives, so it can be overruled. Nothing here changes a spec number.
 | 1 | — | .NET version | net8.0, matching the installed Godot 4.7.2 .NET edition | `Directory.Build.props` |
 | 2 | — | RNG algorithm | SplitMix64 (own implementation; `System.Random` is not guaranteed stable across runtimes) | `SimRng` |
 | 3 | 3.1 | Does oxidation loss renormalize the melt? | No. Lost element's wt% is multiplied by (1 − loss) and Cu stays the balance, matching "Cu is the balance" and the spec example (10.0% → 9.4%). Renormalizing by the lost mass would give 9.50% instead of 9.44% | `MeltProcess` |
+| 4 | 3.1 | Charge item compositions | Each charge item's base element is the balance of its own composition, so `{ "Sn": 100 }` is pure tin and `{ "Cu": 100 }` is pure copper | `MeltProcess.MixCharge` |
 | 5 | 3.2 | Cooling factor ≤ 0 when mold preheat ≥ 1000 °C | Floored at 0.01 (grain 400 µm) instead of dividing by zero | `CastProcess.CoolingFactor` |
 | 6 | 3.2 | Misrun severity when SH < 0 | Clamped to 1 | `CastProcess` |
-| 4 | 3.1 | Charge item compositions | Each charge item's base element is the balance of its own composition, so `{ "Sn": 100 }` is pure tin and `{ "Cu": 100 }` is pure copper | `MeltProcess.MixCharge` |
+| 7 | 9 | Validation rows don't all state grain size/porosity | "Annealed" rows: homogenized (δ = δ_eq, not cored), 40 µm, 0% porosity. "As cast" rows: cored, as-cast δ, 60 µm, 1% porosity (the conditions row 3 states). With 0% porosity, 22% Sn as cast gives ε_max 0.16, just over the ≤ 0.15 band | `ValidationTableTests` |
+| 8 | 4.5 | Acoustic quality goes negative when porosity > 5% | Clamped to 0–1 | `PropertyModel.AcousticQuality` |
+| 9 | 4.5 | Colour stop values | Copper (0.72, 0.42, 0.25) → gold (0.85, 0.65, 0.20) at 8–12% → pale gold (0.90, 0.80, 0.52) at 15% → grey (0.74, 0.74, 0.72) at 20%; As lerps toward silver at 8% per wt% | `bronze.json` `bulk.color` |
+| 10 | 4.1 | Grain size of 0 (never cast) | Floored at 1 µm in the HV grain term | `PropertyModel.Hardness` |
