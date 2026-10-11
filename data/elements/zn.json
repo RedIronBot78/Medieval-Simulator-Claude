@@ -1,0 +1,1 @@
+{ "symbol": "Zn", "name": "Zinc", "role": "impurity", "notes": "Impurity here, brass tier later. Fumes off when melting.", "oxidationLossPerMinute": 0.020, "gasPickupPerWt": 0 }

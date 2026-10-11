@@ -1,0 +1,9 @@
+<Project>
+  <!-- net8.0 matches the installed Godot 4.7.2 .NET edition, which ForgeSim.Core must load into at step 3. -->
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+</Project>

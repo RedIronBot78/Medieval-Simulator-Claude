@@ -1,0 +1,198 @@
+{
+  "id": "bronze",
+  "description": "Bronze-tier material model constants. Every number here comes from docs/design-spec.md unless listed in docs/spec-gaps.md.",
+  "baseElement": "Cu",
+  "effectiveCaps": { "Sn": 14 },
+
+  "melting": {
+    "liquidus":          { "base": 1085, "min": 800, "perWt": { "Sn": -9,  "As": -12, "Pb": -3, "Zn": -6 } },
+    "solidus":           { "base": 1085, "min": 798, "perWt": { "Sn": -23, "As": -30 } },
+    "recrystallization": { "base": 350, "useEffective": true, "perWt": { "Sn": 10, "As": 8 } },
+    "leadElement": "Pb",
+    "leadMeltC": 326
+  },
+
+  "melt": {
+    "oxidationRefTempC": 1100,
+    "oxidationTempScaleC": 150,
+    "charcoalCoverOxidationFactor": 0.3,
+    "gasPerMinute": 0.1,
+    "gasRefTempC": 1100,
+    "gasTempScaleC": 100,
+    "charcoalCoverGasFactor": 0.5,
+    "gasMax": 10,
+    "homogenizationTauStirredMin": 2,
+    "homogenizationTauUnstirredMin": 5,
+    "segregationBelow": 0.8
+  },
+
+  "cast": {
+    "misrunSuperheatC": 40,
+    "misrunVisibleBelowSuperheatC": 15,
+    "porosityPerGas": 0.5,
+    "porosityExcessSuperheatAboveC": 150,
+    "porosityPer100CExcessSuperheat": 1.5,
+    "porosityPerPourError": 1.0,
+    "porosityMax": 10,
+    "porosityDefectAbove": 1.0,
+    "porositySurfaceAbove": 3.0,
+    "moldCoolingFactor": { "stone": 1.0, "bronze": 1.5, "clay": 0.6, "sand": 0.4 },
+    "moldPreheatDivisorC": 1000,
+    "grainSizeNumeratorUm": 40,
+    "deltaElement": "Sn",
+    "deltaStartWt": 7,
+    "deltaPerWt": 0.015,
+    "deltaMax": 0.35
+  },
+
+  "strike": {
+    "hvRef": 100,
+    "reductionPerBlow": 0.02,
+    "crackStrainWindow": 0.1,
+    "crackSeverityBase": 0.05,
+    "crackSeverityPerForce": 0.1,
+    "crackHiddenBelow": 0.3,
+    "foldAngleAboveDeg": 25,
+    "foldChancePer45Deg": 0.05,
+    "shapeAccuracyBelow": 0.7,
+    "shapeErrorPerInaccuracy": 0.01
+  },
+
+  "hotShortness": {
+    "tinElement": "Sn",
+    "tinAboveWt": 6,
+    "tinCrackChancePerWt": 0.03,
+    "leadElement": "Pb",
+    "leadAboveWt": 0.5,
+    "leadCrackChancePerWt": 0.1,
+    "betaHotWorkMinC": 600,
+    "betaHotWorkMaxC": 700
+  },
+
+  "anneal": {
+    "rxTauMin": 10,
+    "rxTempScaleC": 100,
+    "fullRecrystallizationAbove": 0.95,
+    "grainGrowthPerMin": 0.5,
+    "grainGrowthTempScaleC": 150,
+    "homogenizationTauMin": 30,
+    "homogenizationRefTempC": 600,
+    "homogenizationTempScaleC": 100,
+    "coringRemovedAbove": 0.9,
+    "deltaEqElement": "Sn",
+    "deltaEqStartWt": 14,
+    "deltaEqPerWt": 0.05,
+    "deltaEqMax": 0.6,
+    "burntTempScaleC": 50,
+    "burntRevealedAbove": 0.5,
+    "leadSweatElement": "Pb",
+    "leadSweatAboveWt": 2,
+    "leadSweatAboveC": 600,
+    "leadSweatLossWtPerHour": 0.5,
+    "scaleMmPerMin": 0.002,
+    "scaleRefTempC": 600,
+    "scaleTempScaleC": 200
+  },
+
+  "quench": {
+    "thermalShockMedium": "water",
+    "thermalShockDeltaAbove": 0.15,
+    "thermalShockChancePerDelta": 2,
+    "thermalShockCrackSeverity": 0.15,
+    "solutionQuenchToughnessBonus": 3,
+    "betaElement": "Sn",
+    "betaMinWt": 19,
+    "betaMaxWt": 25,
+    "betaMinC": 586,
+    "betaMaxC": 790,
+    "betaMedium": "water",
+    "betaDelta": 0.05
+  },
+
+  "grind": {
+    "removalMm": 0.05
+  },
+
+  "hardness": {
+    "base": { "base": 42, "useEffective": true, "perWt": { "Sn": 4.5, "As": 9, "Zn": 1.5, "Fe": 3, "Pb": -1.5 } },
+    "perDelta": 250,
+    "grainNumerator": 60,
+    "workHardening": { "base": 110, "useEffective": true, "perWt": { "Sn": 9, "As": 12 } },
+    "betaQuenchBonus": 40
+  },
+
+  "toughness": {
+    "base": 100,
+    "perHv": 0.18,
+    "hvRef": 45,
+    "perDelta": 120,
+    "perPorosity": 4,
+    "perCrackSeverity": 30,
+    "perWt": { "Pb": 2 },
+    "coredPenalty": 10,
+    "grainPenaltyAboveUm": 50,
+    "grainPenaltyPerUm": 0.05,
+    "perFold": 10,
+    "perBurntSeverity": 25
+  },
+
+  "workability": {
+    "epsMax": { "base": 0.85, "useEffective": true, "perWt": { "Sn": -0.03, "Pb": -0.02 } },
+    "perDelta": 1.2,
+    "porosityDivisor": 20
+  },
+
+  "edgeRetention": {
+    "hvOffset": 40,
+    "hvDivisor": 2.6
+  },
+
+  "bulk": {
+    "corrosion": { "base": 50, "min": 0, "max": 100, "perWt": { "Sn": 3, "As": 5, "Zn": -2, "S": -5 } },
+    "castability": { "base": 40, "perWt": { "Sn": 2, "Pb": 4 } },
+    "castabilityPerSuperheat": 0.2,
+    "castabilityTypicalSuperheatC": 100,
+    "acousticElement": "Sn",
+    "acousticIdealWt": 21.5,
+    "acousticWidthWt": 2.5,
+    "acousticPorosityDivisor": 5,
+    "leakPorosityAbove": 3,
+    "color": {
+      "element": "Sn",
+      "stops": [
+        { "wt": 0,  "rgb": [0.72, 0.42, 0.25] },
+        { "wt": 8,  "rgb": [0.85, 0.65, 0.20] },
+        { "wt": 12, "rgb": [0.85, 0.65, 0.20] },
+        { "wt": 15, "rgb": [0.90, 0.80, 0.52] },
+        { "wt": 20, "rgb": [0.74, 0.74, 0.72] }
+      ],
+      "silverElement": "As",
+      "silverRgb": [0.80, 0.80, 0.80],
+      "silverPerWt": 0.08
+    }
+  },
+
+  "inspect": {
+    "visualCrackMin": 0.15,
+    "ringCrackMin": 0.05,
+    "ringPorosityMin": 1.0,
+    "fileBands": [
+      { "label": "soft",   "belowHv": 100 },
+      { "label": "medium", "belowHv": 170 },
+      { "label": "hard" }
+    ]
+  },
+
+  "use": {
+    "wearPerUse": 40,
+    "dullThreshold": 10,
+    "bendHvRef": 120,
+    "bendDivisor": 400,
+    "chipToughnessRef": 70,
+    "chipDivisor": 300,
+    "crackGrowthPerImpact": 0.01,
+    "breakToughnessRef": 80,
+    "breakDivisor": 200,
+    "breakPorosityDivisor": 10
+  }
+}

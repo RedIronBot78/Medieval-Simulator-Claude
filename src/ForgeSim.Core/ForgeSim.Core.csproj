@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Plain .NET library. No Godot references, ever (CLAUDE.md rule 1). -->
+  <PropertyGroup>
+    <RootNamespace>ForgeSim.Core</RootNamespace>
+  </PropertyGroup>
+
+</Project>
