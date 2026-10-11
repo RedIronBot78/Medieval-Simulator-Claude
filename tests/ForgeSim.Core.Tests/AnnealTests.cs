@@ -98,7 +98,7 @@ public class AnnealTests
         var item = Cast(sn: 10);
         double before = PropertyModel.EpsMax(TestData.Model, item.Material!);
         Apply(item, Anneal(650, 30));
-        double after = PropertyModel.EpsMax(TestData.Model, item.Material);
+        double after = PropertyModel.EpsMax(TestData.Model, item.Material!);
         Assert.True(after > before + 0.04, $"ε_max {before:0.000} → {after:0.000}");
     }
 
