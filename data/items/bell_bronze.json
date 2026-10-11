@@ -1,0 +1,12 @@
+{
+  "id": "bell_bronze",
+  "name": "Bronze bell",
+  "typicalPath": "Cast only, 20–23% Sn. Brittleness accepted.",
+  "zones": [
+    { "id": "body", "startThicknessMm": 12.0, "targetThicknessMm": 12.0 }
+  ],
+  "requirements": [
+    { "property": "AcousticQuality", "min": 0.85, "weight": 0.8 },
+    { "zone": "body", "property": "CrackSeverity", "max": 0, "weight": 0.2 }
+  ]
+}

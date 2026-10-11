@@ -1,0 +1,14 @@
+{
+  "id": "cauldron_bronze",
+  "name": "Bronze cauldron",
+  "typicalPath": "Cast, thin walls, leaded bronze acceptable",
+  "zones": [
+    { "id": "wall", "startThicknessMm": 4.0,  "targetThicknessMm": 4.0, "isWall": true },
+    { "id": "rim",  "startThicknessMm": 6.0,  "targetThicknessMm": 6.0 },
+    { "id": "feet", "startThicknessMm": 10.0, "targetThicknessMm": 10.0 }
+  ],
+  "requirements": [
+    { "property": "Leaks",       "max": 0,  "weight": 0.6 },
+    { "property": "Castability", "min": 70, "weight": 0.4 }
+  ]
+}

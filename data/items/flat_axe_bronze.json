@@ -1,0 +1,14 @@
+{
+  "id": "flat_axe_bronze",
+  "name": "Bronze flat axe",
+  "typicalPath": "Cast in mold → edge cold work → grind",
+  "zones": [
+    { "id": "edge", "startThicknessMm": 5.0,  "targetThicknessMm": 2.5 },
+    { "id": "body", "startThicknessMm": 14.0, "targetThicknessMm": 14.0 }
+  ],
+  "requirements": [
+    { "zone": "edge", "property": "HV",         "min": 170, "max": 230, "weight": 0.5 },
+    { "zone": "body", "property": "Toughness",  "min": 60,              "weight": 0.3 },
+    { "zone": "edge", "property": "ShapeError", "max": 0.15,            "weight": 0.2 }
+  ]
+}

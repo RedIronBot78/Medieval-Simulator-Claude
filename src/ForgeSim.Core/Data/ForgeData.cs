@@ -51,6 +51,7 @@ public sealed class ForgeData
     {
         if (!Elements.ContainsKey(Model.BaseElement))
             throw new InvalidDataException($"Model base element {Model.BaseElement} has no element file.");
+        foreach (var t in Templates.Values) Fitness.Validate(t);
     }
 
     /// <summary>Throws if a composition mentions an element with no data file.</summary>
