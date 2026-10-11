@@ -16,6 +16,8 @@ public sealed class ItemInstance
     public List<Zone> Zones { get; init; } = new();
     public List<ProcessStep> History { get; init; } = new();
     public List<Defect> Defects { get; init; } = new();
+    /// <summary>Inspections performed, in order. They reveal defects but never change the metal.</summary>
+    public List<InspectionRecord> Inspections { get; init; } = new();
 
     /// <summary>Set when a step makes further processing impossible (e.g. charge never fully melted).</summary>
     public string? Failure { get; set; }
@@ -51,6 +53,10 @@ public sealed class ItemInstance
         Zones = Zones.Select(z => z.Clone()).ToList(),
         History = new List<ProcessStep>(History),
         Defects = Defects.Select(d => d.Clone()).ToList(),
+        Inspections = new List<InspectionRecord>(Inspections),
         Failure = Failure,
     };
 }
+
+/// <summary>An inspection performed after <paramref name="AfterStep"/> history steps.</summary>
+public sealed record InspectionRecord(int AfterStep, Inspection.InspectMethod Method);
