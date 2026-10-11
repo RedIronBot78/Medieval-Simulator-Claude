@@ -1,0 +1,14 @@
+{
+  "id": "bell_22sn",
+  "description": "22% Sn bell metal, cast into a preheated clay mold with a careful pour. Cast only.",
+  "template": "bell_bronze",
+  "seed": 1234,
+  "steps": [
+    { "type": "Melt", "charge": [
+        { "composition": { "Cu": 100 }, "massKg": 7.80 },
+        { "composition": { "Sn": 100 }, "massKg": 2.20 } ],
+      "peakTempC": 1000, "minutesAtTemp": 15, "minutesAboveLiquidus": 12,
+      "cover": "charcoal", "stirred": true },
+    { "type": "Cast", "pourTempC": 980, "moldType": "clay", "moldPreheatC": 300, "pourQuality": 0.95 }
+  ]
+}

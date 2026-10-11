@@ -1,0 +1,8 @@
+{
+  "id": "chopping_softwood",
+  "name": "Chopping softwood (axe)",
+  "impactLoad": 0.7,
+  "abrasion": 0.3,
+  "targetHardness": 0.2,
+  "primaryZone": "edge"
+}

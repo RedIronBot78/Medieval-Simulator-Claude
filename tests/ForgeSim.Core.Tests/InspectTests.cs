@@ -12,7 +12,7 @@ public class InspectTests
     private static ItemInstance WithEdgeCrack(double severity)
     {
         var item = Cast(sn: 10);
-        StrikeProcess.AddCrack(Fixtures.Forge, item, item.Zone("edge"), severity, "test");
+        StrikeProcess.AddCrack(Fixtures.Smith, item, item.Zone("edge"), severity, "test");
         return item;
     }
 

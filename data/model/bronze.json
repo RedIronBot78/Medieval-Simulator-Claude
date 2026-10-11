@@ -186,6 +186,7 @@
   "use": {
     "wearPerUse": 40,
     "dullThreshold": 10,
+    "chipLossMm": 0.1,
     "bendHvRef": 120,
     "bendDivisor": 400,
     "chipToughnessRef": 70,

@@ -245,6 +245,7 @@ public sealed class UseConstants
 {
     public double WearPerUse { get; init; }
     public double DullThreshold { get; init; }
+    public double ChipLossMm { get; init; }
     public double BendHvRef { get; init; }
     public double BendDivisor { get; init; }
     public double ChipToughnessRef { get; init; }

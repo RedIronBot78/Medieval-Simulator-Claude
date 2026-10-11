@@ -1,4 +1,5 @@
 using ForgeSim.Core.Items;
+using ForgeSim.Core.Performance;
 
 namespace ForgeSim.Core.Data;
 
@@ -9,6 +10,7 @@ public sealed class ForgeData
     public required IReadOnlyDictionary<string, ElementDef> Elements { get; init; }
     public required MaterialModel Model { get; init; }
     public required IReadOnlyDictionary<string, ItemTemplate> Templates { get; init; }
+    public required IReadOnlyDictionary<string, UseProfile> Uses { get; init; }
 
     public static ForgeData Load(string dataRoot, string modelId = "bronze")
     {
@@ -17,8 +19,10 @@ public sealed class ForgeData
         var model = Json.Load<MaterialModel>(Path.Combine(dataRoot, "model", modelId + ".json"));
         var templates = LoadAll<ItemTemplate>(Path.Combine(dataRoot, "items"))
             .ToDictionary(t => t.Id, StringComparer.Ordinal);
+        var uses = LoadAll<UseProfile>(Path.Combine(dataRoot, "uses"))
+            .ToDictionary(u => u.Id, StringComparer.Ordinal);
 
-        var data = new ForgeData { Root = dataRoot, Elements = elements, Model = model, Templates = templates };
+        var data = new ForgeData { Root = dataRoot, Elements = elements, Model = model, Templates = templates, Uses = uses };
         data.Validate();
         return data;
     }
@@ -41,6 +45,9 @@ public sealed class ForgeData
 
     public ItemTemplate Template(string id) =>
         Templates.TryGetValue(id, out var t) ? t : throw new KeyNotFoundException($"No item template '{id}' in data/items.");
+
+    public UseProfile Use(string id) =>
+        Uses.TryGetValue(id, out var u) ? u : throw new KeyNotFoundException($"No use profile '{id}' in data/uses.");
 
     private static IEnumerable<T> LoadAll<T>(string dir) =>
         Directory.Exists(dir)

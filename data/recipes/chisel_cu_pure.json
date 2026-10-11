@@ -1,0 +1,17 @@
+{
+  "id": "chisel_cu_pure",
+  "description": "Pure copper chisel worked the same way as the good bronze one. Soft metal: moves easily, never gets hard.",
+  "template": "chisel_bronze",
+  "seed": 1234,
+  "steps": [
+    { "type": "Melt", "charge": [ { "composition": { "Cu": 100 }, "massKg": 1.0 } ],
+      "peakTempC": 1150, "minutesAtTemp": 15, "minutesAboveLiquidus": 12,
+      "cover": "charcoal", "stirred": true },
+    { "type": "Cast", "pourTempC": 1140, "moldType": "stone", "moldPreheatC": 150, "pourQuality": 0.9 },
+    { "type": "Anneal", "tempC": 500, "minutes": 30, "atmosphere": "charcoal" },
+    { "type": "Strike", "repeat": 25, "zone": "edge", "force": 0.7, "accuracy": 0.9, "angleOffDeg": 5, "metalTempC": 20 },
+    { "type": "Anneal", "tempC": 500, "minutes": 10, "atmosphere": "charcoal" },
+    { "type": "Strike", "repeat": 25, "zone": "edge", "force": 0.6, "accuracy": 0.9, "angleOffDeg": 5, "metalTempC": 20 },
+    { "type": "Grind", "zone": "edge", "edgeAngleDeg": 30, "finish": 0.8 }
+  ]
+}
